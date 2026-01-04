@@ -25,4 +25,5 @@ Utilise la bibliothèque `yt-dlp` pour :
 
 Sur Arch Linux :
 ```bash
-sudo pacman -S ffmpeg   
+sudo pacman -S ffmpeg
+pip install requirement.txt   
