@@ -1,17 +1,9 @@
-from pytube import YouTube
+import yt_dlp
 
-
-
-def telecharger_video(url):
-    try:
-        yt = YouTube(url)
-        print(f"Téléchargement de : {yt.title}")
-        stream = yt.streams.get_highest_resolution()
-        stream.download()
-        print("✅ Téléchargement terminé !")
-    except Exception as e:
-        print(f"❌ Erreur : {e}")
-
-# Exemple d'utilisation
-lien = input("Entrez l'URL YouTube : ")
-telecharger_video(lien)   
+url = input("Entrez l'URL YouTube : ")
+ydl_opts = {
+    'format': 'bestvideo+bestaudio',
+    'outtmpl': '%(title)s.%(ext)s'
+}
+with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+    ydl.download([url])   
